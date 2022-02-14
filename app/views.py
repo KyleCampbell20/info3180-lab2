@@ -5,13 +5,19 @@ Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file creates your application.
 """
 
+from ast import Return
 from app import app
 from flask import render_template, request, redirect, url_for, flash
-
+import datetime
 
 ###
 # Routing for your application.
 ###
+@app.route('/profile')
+def profile():
+    
+    return render_template('profile.html', date= format_date_joined(2022, 2, 11))
+   
 
 @app.route('/')
 def home():
@@ -22,7 +28,9 @@ def home():
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html', name="Kyle Campbell")
+
+
 
 
 ###
@@ -52,6 +60,14 @@ def add_header(response):
 def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
+    
+def format_date_joined(year, month, day):
+    date_joined = datetime.datetime(year, month, day)
+    return "Joined"+ " " + date_joined.strftime("%B, %Y")
+    
+
+
+
 
 
 if __name__ == '__main__':

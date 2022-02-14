@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+
+<div class="div1">
+    <img src="{{ url_for('static', filename='myimage.jpg') }}" alt=""></img>
+    <h1> Kyle Campbell</h1>
+    <p>@kcampbell <br> St.Catherine, Jamaica</p>
+    <p>{{ date }}</p>
+</div>
+
+
+<div class="div2">  I am an intelligent young man who likes to watch anime and play video games. I also enjoy playing Table tennis. </div>
+<div class="container1">
+    <div class="div3"> 7 <br> posts</div>
+    <div class="div4"> 100 <br> following</div>
+    <div class="div5"> 250 <br> followers</div>
+    
+</div>
+<div class="div6"> <button> follow </button></div>
+
+
+
+{% endblock %}
